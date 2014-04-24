@@ -36,7 +36,7 @@ class CreateBlog extends WalkhubSeleniumTestCase {
     $element->value($subtitle);
 
     // setElementSelected
-    $element = $this->byId("edit-field-blog-category-und-8");
+    $element = $this->byCssSelector('#edit-field-blog-category-und div input');
     if (!$element->selected()) {
       $element->click();
     }
