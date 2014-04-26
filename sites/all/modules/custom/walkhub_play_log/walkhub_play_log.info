@@ -1,0 +1,7 @@
+name = Walkhub play log
+description = Creates statistics about which walkthroughs play well.
+package = Walkthrough
+
+core = 7.x
+files[] = walkhub_play_log.module
+dependencies[] = walkhub
