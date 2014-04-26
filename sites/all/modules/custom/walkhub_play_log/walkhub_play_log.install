@@ -7,54 +7,51 @@ function walkhub_play_log_schema() {
   $schema['walkhub_play_log'] = array(
     'description' => 'Result of walkthrough playings',
     'fields' => array(
+      'pid' => array(
+        'description' => 'Play id',
+        'type' => 'int',
+      ),
       'uuid' => array(
         'description' => 'The Universally Unique Identifier.',
         'type' => 'char',
         'length' => '36',
-        'not null' => TRUE,
         'default' => '',
-      ),
-      'nid' => array(
-        'description' => 'Node id of the walkthrough played.',
-        'type' => 'int',
-        'not null' => TRUE,
       ),
       'uid' => array(
         'description' => 'User id of the person who played the walkthrough.',
         'type' => 'int',
-        'not null' => TRUE,
       ),
       'date' => array(
         'description' => 'Unix timestamp of the start of the walkthrough.',
         'type' => 'int',
-        'not null' => TRUE,
-      ),
-      'user_agent' => array(
-        'description' => 'Browser user agent.',
-        'type' => 'text',
-        'not null' => TRUE,
-      ),
-      'result' => array(
-        'description' => 'Result of the walkthrough play.',
-        'type' => 'varchar',
-        'length' => '1024',
-        'not null' => TRUE,
       ),
       'time' => array(
         'description' => 'Time it took to get the result.',
         'type' => 'int',
-        'not null' => TRUE,
+      ),
+      'ip' => array(
+        'description' => 'IP address of the client',
+        'type' => 'char',
+        'length' => 46,
+      ),
+      'result' => array(
+        'description' => 'Result of the walkthrough play.',
+        'type' => 'int',
       ),
       'error_message' => array(
         'description' => 'Error message (if there was any).',
         'type' => 'varchar',
         'length' => '1024',
-        'not null' => TRUE,
+      ),
+      'user_agent' => array(
+        'description' => 'Browser user agent.',
+        'type' => 'text',
       ),
     ),
     'primary key' => array('uuid'),
     'indexes' => array(
-      'walkthrough' => array('nid'),
+      'ip' => array('ip'),
+      'pid' => array('pid'),
     ),
   );
 
